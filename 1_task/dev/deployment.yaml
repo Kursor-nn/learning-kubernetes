@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: dev-applications
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dev-applications
+  template:
+    metadata:
+      labels:
+        app: dev-applications
+    spec:
+      containers:
+        - name: dev-echo-service
+          image: kursornn/dev-echo-service:0.0.2
+          ports:
+            - containerPort: 8080
+              protocol: TCP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: dev-application-svc
+  namespace: default
+spec:
+  selector:
+    app: dev-applications
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
